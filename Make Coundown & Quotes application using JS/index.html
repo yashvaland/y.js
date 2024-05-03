@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Countdown & Quotes Application</title>
+
+    <style>
+        body {
+            background-color: black;
+            text-align: center;
+            align-content: center;
+        }
+        
+        .timer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #clock {
+            height: 200px;
+            width: 200px;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            color: black;
+            border-radius: 50%;
+            text-align: center;
+            font-weight: bold;
+            /* color: white; */
+        }
+        
+        button {
+            font-size: 24px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        
+        h1 {
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- timer -->
+    <h1>Timer</h1>
+    <div class="timer">
+        <h1 id="clock">00:10</h1>
+    </div>
+
+    <div>
+        <button onclick="startTimer()">Start</button>
+
+        <button onclick="pauseTimer()">Pause</button>
+
+        <button onclick="resetTimer()">Reset</button>
+    </div>
+
+    <!-- slider -->
+    <h1>slider</h1>
+    <img src="" alt="" height="350px" width="800px"> \
+
+
+    <!--java script -->
+    <script>
+        var timer;
+        var timeRemaining = 10;
+
+        function startTimer() {
+
+            timer = setInterval(updateTimer, 1000);
+
+        }
+
+        function pauseTimer() {
+
+            clearInterval(timer);
+
+        }
+
+
+        function resetTimer() {
+
+            clearInterval(timer);
+
+            timeRemaining = 10;
+
+            updateDisplay();
+
+        }
+
+        function updateTimer() {
+
+            if (timeRemaining > 0) {
+
+                timeRemaining--;
+
+                updateDisplay();
+
+            }
+
+        }
+
+        function updateDisplay() {
+
+            var minutes = Math.floor(timeRemaining / 60).toString().padStart(2, '0');
+            var seconds = (timeRemaining % 60).toString().padStart(2, '0');
+            document.getElementById('clock').textContent = minutes + ':' + seconds;
+        }
+
+        updateDisplay();
+
+        // slider
+
+        let arr = ["https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/rockcms/2023-11/short-quotes-swl-231117-02-33d404.jpg", "https://cdn-fkmoj.nitrocdn.com/xvpOGZRTxJUhXKufpOYIruQcRqtvAAQX/assets/images/optimized/rev-4e1f421/media.briantracy.com/blog/wp-content/uploads/2024/01/23111610/Quote-11.png", "https://cdn-fkmoj.nitrocdn.com/xvpOGZRTxJUhXKufpOYIruQcRqtvAAQX/assets/images/optimized/rev-4e1f421/media.briantracy.com/blog/wp-content/uploads/2024/01/23111610/Quote-11.png"]
+        let currentindex = 0
+        setInterval(() => {
+            currentindex = (currentindex + 1) % arr.length;
+            document.querySelector("img").src = arr[currentindex]
+        }, 3000)
+    </script>
+
+</body>
+
+</html>
