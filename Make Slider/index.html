@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* display: flex; */
+            justify-content: center;
+            text-align: center;
+            background-color: black;
+            color: white;
+        }
+        
+        h1 {
+            text-align: center;
+            background-color: white;
+            color: black;
+        }
+        
+        img {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>slider</h1>
+    <div class="img">
+        <img src="" alt="" height="500px" width="90%">
+    </div>
+</body>
+
+</html>
+<script>
+    let arr = ["https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072821_1280.jpg", "https://static.vecteezy.com/system/resources/thumbnails/024/669/482/small/mountain-countryside-landscape-at-sunset-dramatic-sky-over-a-distant-valley-green-fields-and-trees-on-hill-beautiful-natural-landscapes-of-the-carpathians-generative-ai-variation-8-photo.jpeg", "https://www.japan.go.jp/kizuna/_userdata/ogp/2021/08/new_world_natural_heritage_site.jpg"]
+    let currentindex = 0
+    setInterval(() => {
+        currentindex = (currentindex + 1) % arr.length;
+        document.querySelector("img").src = arr[currentindex]
+    }, 3000)
+</script>
