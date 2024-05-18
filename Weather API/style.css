@@ -1,0 +1,15 @@
+div {
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    background-color: black;
+}
+
+div:hover {
+    background-color: white;
+}
+
+h1 {
+    text-align: center;
+}
